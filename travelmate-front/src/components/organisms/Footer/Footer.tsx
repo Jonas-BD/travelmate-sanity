@@ -1,7 +1,12 @@
+import { ContainerStyled } from "../../../styled/container.styled"
+import { FooterStyled } from "./Footer.styled"
+
 export const Footer = () => {
   return (
-    <div>
-      <h2>Footer</h2>
-    </div>
+    <FooterStyled>
+      <ContainerStyled>
+        <h2>Travel<span>Mate</span></h2>
+      </ContainerStyled>
+    </FooterStyled>
   )
 }

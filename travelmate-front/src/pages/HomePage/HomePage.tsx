@@ -1,9 +1,21 @@
+import { CountryList } from "../../components/molecules/CountryList/CountryList"
+import { Hero } from "../../components/organisms/Hero/Hero"
 import { ContentWrapper } from "../../layout/ContentWrapper/ContentWrapper"
+import { ContainerStyled } from "../../styled/container.styled"
 
 export const HomePage = () => {
+
   return (
     <ContentWrapper title="Home">
-      <h1>HomePage</h1>
+      <Hero />
+      <ContainerStyled>
+        <h2>Popular Countries</h2>
+        <CountryList />
+
+        <h2>Popular Cities</h2>
+
+        <h2>Featured Places</h2>
+      </ContainerStyled>
     </ContentWrapper>
   )
 }

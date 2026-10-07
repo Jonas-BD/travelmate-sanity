@@ -1,38 +1,36 @@
-import { useEffect, useState } from "react";
 import type { Country } from "../types/Country.types";
+import { useGraphQL } from "./useGraphQL";
 
-const API_URL = "https://vc422zc2.api.sanity.io/v2025-09-19/graphql/production/default";
+type CountriesResponse = {
+  allCountry: Country[];
+};
 
-const query = `
-    query {
-      allCountry {
-        id
-        code
+const COUNTRIES_QUERY = `
+  query {
+    allCountry {
+      id
+      code
+
+      image {
+        asset {
+          url
+        }
+      }
+
+      infos {
+        language
+        name
+        description
       }
     }
-`
+  }
+`;
 
 export const useCountryGraphQL = () => {
-    const [countries, setCountries] = useState<Country[]>([]);
+  const { data, error } = useGraphQL<CountriesResponse>(COUNTRIES_QUERY);
 
-    useEffect(() => {
-        const getCountries = async () => {
-            const response = await fetch(API_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ query }),
-            })
-
-            const result = await response.json();
-            console.log(result);
-
-            setCountries(result.data.allCountry);
-        }
-
-        getCountries();
-    }, []);
-
-    return { countries };
-}
+  return {
+    countries: data?.allCountry ?? [],
+    error,
+  };
+};
