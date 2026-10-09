@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom"
 import { Card } from "../Card/Card"
 import { ListStyled } from "../../../styled/elements.styled"
-import { useCountries } from "../../../hooks/useCountries"
+import { useCities } from "../../../hooks/useCities"
 
-export const CountryList = () => {
-    const { countries } = useCountries()
+export const CityList = () => {
+    const { cities } = useCities()
 
   return (
     <ListStyled>
-        {countries.map(item => {
+        {cities.map(item => {
             return (
                 <li key={item._id}>
-                    <Link key={item._id} to={`/countries/${item._id}`}>
+                    <Link key={item._id} to={`/cities/${item._id}`}>
                         <Card image={item.image} title={item.name} subtitle={item.description} />
                     </Link>
                 </li>

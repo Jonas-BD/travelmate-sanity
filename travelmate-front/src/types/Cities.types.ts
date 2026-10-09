@@ -1,10 +1,10 @@
-export type LanguageCode = "da" | "en" | "es";
+import type { Country } from "./Country.types";
 
-export type Country = {
+export type City = {
   _id: string;
-  code: string;
   name: string;
   image: string;
   slug: string;
   description: string;
+  country: Country;
 };

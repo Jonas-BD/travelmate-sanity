@@ -1,3 +1,4 @@
+import { CityList } from "../../components/molecules/CityList/CityList"
 import { CountryList } from "../../components/molecules/CountryList/CountryList"
 import { Hero } from "../../components/organisms/Hero/Hero"
 import { ContentWrapper } from "../../layout/ContentWrapper/ContentWrapper"
@@ -13,6 +14,7 @@ export const HomePage = () => {
         <CountryList />
 
         <h2>Popular Cities</h2>
+        <CityList />
 
         <h2>Featured Places</h2>
       </ContainerStyled>
